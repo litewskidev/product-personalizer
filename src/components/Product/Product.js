@@ -19,6 +19,16 @@ const Product = props => {
     )}, [props.basePrice, props.sizes, currentSize]
   );
 
+  const addToCart = e => {
+    e.preventDefault();
+    console.log('Summary');
+    console.log('===============');
+    console.log('Name: ', props.title);
+    console.log('Price: ', getPrice + ' $');
+    console.log('Size: ', currentSize);
+    console.log('Color: ', currentColor);
+  };
+
   return(
     <article className={styles.product}>
       <div className={styles.imageContainer}>
@@ -32,7 +42,7 @@ const Product = props => {
           <h2 className={styles.name}>{props.title}</h2>
           <span className={styles.price}>Price: {getPrice}$</span>
         </header>
-        <form>
+        <form onSubmit={addToCart}>
           <div className={styles.sizes}>
             <h3 className={styles.optionLabel}>Sizes</h3>
             <ul className={styles.choices}>
